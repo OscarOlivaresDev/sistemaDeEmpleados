@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-4">
+            <ul class="list-group">
+                <li *ngFor="let empleado of empleadosArray" class="list-group-item list-group-item-action" (click)="editarEmpleado(empleado)" [class.active]="empleado == nuevoEmpleado"><span class="badge bg-primary">{{empleado.id}}</span> {{empleado.name}} - {{empleado.country}}</li>
+            </ul>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="card-title">
+                        <b>Agregue un nuevo empleado</b>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="nuevoEmpleado.name" placeholder="Nombre" class="form-control">
+                    </div><br>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="nuevoEmpleado.country" placeholder="País" class="form-control">
+                    </div><br>
+                    <button (click)="agregarEmpleado()" class="btn btn-primary"> 
+                        Enviar
+                    </button>
+                    <button *ngIf="nuevoEmpleado.id !== 0" (click)="eliminarEmpleado()" class="btn btn-danger mx-2"> 
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img alt="Empleado Logo" width="400px" height="400px" src="https://cdn-icons-png.flaticon.com/512/554/554795.png"/>
+        </div>
+    </div>
+</div>
+
